@@ -1,0 +1,62 @@
+{
+  "name": "black_box_frontend",
+  "version": "1.0.0",
+  "description": "SORC: Black box front",
+  "main": "webpack.config.js",
+  "repository": "git@github.com:evilosa/bb_front.git",
+  "author": "evilosa <bojkov@sorc.ru>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot",
+    "build": "babel src/ -d lib/",
+    "prepublish": "yarn run build",
+    "precommit": "yarn run lint:src && yarn run lint:test && yarn run lint-staged",
+    "lint:src": "eslint src/**.js --config ./.eslintrc",
+    "lint:test": "eslint test/**.js --config ./.eslintrc",
+    "flow": "flow check --ignore '.*/node_modules/.*'"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "html-webpack-plugin": "^2.30.1",
+    "lint-staged": "^6.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-config": "^1.0.0-beta.4",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.8",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-extensible-destructuring": "^4.1.0",
+    "babel-plugin-flow-react-proptypes": "^11.0.0",
+    "babel-plugin-module-resolver": "^3.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.13.1",
+    "eslint-plugin-flowtype": "^2.40.1",
+    "eslint-plugin-react": "^7.5.1",
+    "extensible-runtime": "^4.1.0",
+    "flow-bin": "0.59.0",
+    "husky": "^0.14.3",
+    "nodemon": "^1.12.7",
+    "path": "^0.12.7",
+    "prettier": "^1.9.2",
+    "react-hot-loader": "^3.1.3",
+    "webpack": "^3.9.1",
+    "webpack-dev-server": "^2.9.5"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --parser flow --write --single-quote --trailing-comma es5 --print-width 100",
+      "git add"
+    ]
+  }
+}

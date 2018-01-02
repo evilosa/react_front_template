@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    "flow-react-proptypes",
+    "transform-runtime",
+    ["extensible-destructuring", {"mode": "optout", "impl": "immutable"}],
+    "transform-class-properties",
+    "react-hot-loader/babel",
+    ["module-resolver", {
+      "alias": {
+        "components": "./src/components",
+        "features": "./src/features",
+        "utils": "./src/utils"
+      }
+    }]
+  ],
+  "presets": [ "env", "react", "flow" ]
+}
