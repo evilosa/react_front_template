@@ -32,7 +32,7 @@ class NavBar extends React.Component<{}, State> {
   _renderItem = (title: string, value: string, icon: any) => {
     const { currentPage } = this.state;
     const isActive = currentPage === value;
-    const color = isActive ? '#8d96b2' : '#fff';
+    const color = isActive ? '#fff' : '#8d96b2';
 
     return (
       <SideNavItem
