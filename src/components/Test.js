@@ -16,7 +16,7 @@ class Test extends React.Component<Props> {
     return (
       <div>
         Test component
-        <Link to="/test/child">Child</Link>
+        <Link to="/manufacturers/child">Child</Link>
         {route && renderRoutes(route.routes)}
       </div>
     );

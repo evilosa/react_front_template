@@ -62,4 +62,5 @@ typings/
 .vscode/
 
 # Other
+dist/
 lib/

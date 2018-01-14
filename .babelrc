@@ -4,6 +4,13 @@
     "transform-runtime",
     ["extensible-destructuring", {"mode": "optout", "impl": "immutable"}],
     "transform-class-properties",
+    "transform-object-rest-spread",
+    ["react-css-modules",
+      {
+        "webpackHotModuleReloading": true,
+        "exclude": "node_modules"
+      }
+    ],
     "react-hot-loader/babel",
     ["module-resolver", {
       "alias": {

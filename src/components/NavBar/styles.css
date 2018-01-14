@@ -1,0 +1,11 @@
+.nav-bar {
+  display:flex;
+  flex-direction: column;
+  width: 15%;
+  min-width: 200px;
+  max-width: 300px;
+  background-color: #343b4c;
+}
+
+.nav-bar-item {
+}

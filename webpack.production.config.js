@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -11,20 +12,14 @@ module.exports = {
   entry: './src/components/App',
   output: {
     path: path.resolve('dist'),
-    filename: 'index_bundle.js',
+    filename: '[name].js',
     publicPath: '/',
   },
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
-      {
-        test: /\.css$/,
-        loaders: [
-          'style-loader?sourceMap',
-          'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-        ],
-      },
+      { test: /\.css$/, loader: ['style-loader', 'css-loader'] },
     ],
   },
   resolve: {
@@ -46,6 +41,11 @@ module.exports = {
       },
     },
   },
-  devtool: 'cheap-module-eval-source-map',
-  plugins: [HtmlWebpackPluginConfig],
+  devtool: 'eval-source-map',
+  plugins: [
+    HtmlWebpackPluginConfig,
+    new webpack.optimize.CommonsChunkPlugin('index'),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
+  ],
 };
